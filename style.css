@@ -1,0 +1,206 @@
+/*
+    Modern Responsive Age Calculator Styles
+    Author: GitHub Copilot
+    Description: Clean, minimal, dark/light mode, animations, mobile-first
+*/
+:root {
+    --primary: #4f8cff;
+    --background-light: #f7f9fa;
+    --background-dark: #181a1b;
+    --card-light: #fff;
+    --card-dark: #23272b;
+    --text-light: #222;
+    --text-dark: #f7f9fa;
+    --accent: #ffb347;
+    --transition: 0.3s cubic-bezier(.4,0,.2,1);
+}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--background-light);
+    color: var(--text-light);
+    transition: background var(--transition), color var(--transition);
+}
+body.dark {
+    background: var(--background-dark);
+    color: var(--text-dark);
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem 1rem 1rem;
+    background: #4f8cff;
+}
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+span{
+    color: red;
+}
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: color var(--transition);
+    color: var(--primary);
+}
+body.dark #theme-toggle {
+    color: var(--accent);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
+    padding: 1rem;
+}
+.input-section {
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem 0 1rem 0;
+    background: none;
+}
+.input-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+#age-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+#age-form label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+#dob {
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    background: var(--card-light);
+    color: var(--text-light);
+    transition: background var(--transition), color var(--transition);
+}
+body.dark #dob {
+    background: var(--card-dark);
+    color: var(--text-dark);
+    border-color: #333;
+}
+#calc-btn {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+    transition: background var(--transition), transform var(--transition);
+}
+#calc-btn:hover, #calc-btn:focus {
+    background: var(--accent);
+    transform: scale(1.04);
+}
+.result-section {
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.result-card {
+    width: 100%;
+    background: var(--card-light);
+    color: var(--text-light);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(79,140,255,0.10);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.7s forwards;
+    transition: background var(--transition), color var(--transition);
+}
+body.dark .result-card {
+    background: var(--card-dark);
+    color: var(--text-dark);
+    box-shadow: 0 4px 24px rgba(35,39,43,0.18);
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.result-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+}
+.result-card p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+.extra-ages {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.result-actions {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.result-actions button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+.result-actions button:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
+.today-section {
+    margin: 1.5rem 0 0.5rem 0;
+    text-align: center;
+}
+#today-date {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+footer {
+    text-align: center;
+    padding: 1.5rem 0 1rem 0;
+    font-size: 0.95rem;
+    color: #888;
+    background: none;
+}
+/* Responsive Styles */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .input-section, .result-section {
+        max-width: 98vw;
+        padding: 0 0.5rem;
+    }
+    .result-card {
+        padding: 1.2rem 0.7rem;
+    }
+}
